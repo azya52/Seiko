@@ -292,16 +292,16 @@ public class MainActivity extends Activity {
         menuMain.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener(){
             @Override
             public boolean onMenuItemClick(MenuItem item){
-                switch (item.getItemId()) {
-                    case R.id.antiphase:
-                        setAntiphase(!item.isChecked());
-                        return true;
-                    case R.id.how_to_use:
-                        showHowToUse();
-                        return true;
-                    default:
-                        return true;
+                int itemId = item.getItemId();
+                if (itemId == R.id.antiphase) {
+                    setAntiphase(!item.isChecked());
+                    return true;
                 }
+                if (itemId == R.id.how_to_use) {
+                    showHowToUse();
+                    return true;
+                }
+                return true;
             }
         });
         menuMain.show();
